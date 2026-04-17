@@ -1,126 +1,55 @@
-body {
-
-font-family: Arial, sans-serif;
-
-color: #333;
-
-background-color: #f9f9f9;
-
-margin: 0;
-
-padding: 0;
-
-line-height: 1.6;
-
-}
-header {
-
-background-color: #4CAF50;
-
-color: white;
-
-padding: 20px;
-
-text-align: center;
-
+html {
+    background-image: url("../../Nature View Through Camera Lens at Sunset.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
-
-header h1 {
-
-margin: 0;
-
+html.home {
+    background-image: url("../../Tripods, Monopods, and Image Stabilization.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
 }
 
+body{
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: rgba(255, 255, 255, 0.7);  /* Semi-transparent white overlay to dim the background image for better text readability */
+    color: rgba(10, 16, 18, 0.91);
+    min-height: 100vh;                  /* Makes the page at least as tall as the whole screen, like stretching a blanket to cover the bed */
+    display: flex;                      /* Turns the page into a flexible box, so parts can move and stretch */
+    flex-direction: column;             /* Stacks everything in a straight line from top to bottom, like building blocks on top of each other */
 
+    border: #333 1px solid;                 /* Adds a thin black border around the whole page, like a picture frame */
+    border-radius: 5px;                      /* Rounds the corners of the border, like a soft cushion instead of sharp edges */
+    padding: 20px;                          /* Adds space inside the border, like a comfy cushion*/
+}
+
+/* NAV CONTAINER */
+
+nav {
+    display: flex;                      /* make the links line up in a row like toys in a box */
+    justify-content: center;            /* center the links in the middle of the page */
+    gap: 10px;                          /* adds 10px space between links like gaps between toys in a box */
+    margin: 20px 0;                     /* adds 20px empty space above and below the nav container(No space for left or right) */
+}
+
+/* LINKS BUTTONS */
 nav a {
-
-color: white;
-
-text-decoration: none;
-
-margin: 0 10px;
-}
-
-
-nav a:hover {
-
-text-decoration: underline;
-
-}main {
-
-padding: 20px;
-
-max-width: 800px;
-
-margin: 0 auto;
-
-}
-
-
-main img {
-
-max-width: 100%;
-
-height: auto;
-
-display: block;
-
-margin: 20px 0;
-
+    padding: 10px 20px;                 /*Space inside an element of a container .for HOME button it is 10px top and bottom, 20px left and right */  
+    background-color: #e0e0e0;
+    color: #333;
+    text-decoration: none;
+    border: 1px solid #ccc;            /* adds a thin grey line around the buttons like a fence around a garden */
+    border-radius: 5px;                 /* rounded corners for the buttons */
+    font-weight: bold;
 }
 
 footer {
-
-background-color: #333;
-
-color: white;
-
-text-align: center;
-
-padding: 10px;
-
-position: fixed;
-
-bottom: 0;
-
-width: 100%;
-
-}
-
-p {
-
-font-size: 1.1em;
-
-}
-
-
-a {
-
-color: #4CAF50;
-
-text-decoration: none;
-
-}
-
-
-a:hover {
-
-text-decoration: underline;
-
-img {
-
-border: 5px solid #4CAF50;
-
-border-radius: 10px;
-
-}
-
-main a[href^="mailto:"] {
-
-color: #ff5722;
-
-font-weight: bold;
-
-}
-
+    margin-top: auto;  text-align: center;
+}                                                /* Automatically pushes the footer down to the bottom, like a magnet pulling it there, leaving space above */   

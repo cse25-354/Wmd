@@ -1,55 +1,302 @@
-html {
-    background-image: url("../../Nature View Through Camera Lens at Sunset.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100vh;
+/* =========================
+   1. RESET / BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html.home {
-    background-image: url("../../Tripods, Monopods, and Image Stabilization.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100vh;
-}
-
-body{
+body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: rgba(255, 255, 255, 0.7);  /* Semi-transparent white overlay to dim the background image for better text readability */
-    color: rgba(10, 16, 18, 0.91);
-    min-height: 100vh;                  /* Makes the page at least as tall as the whole screen, like stretching a blanket to cover the bed */
-    display: flex;                      /* Turns the page into a flexible box, so parts can move and stretch */
-    flex-direction: column;             /* Stacks everything in a straight line from top to bottom, like building blocks on top of each other */
-
-    border: #333 1px solid;                 /* Adds a thin black border around the whole page, like a picture frame */
-    border-radius: 5px;                      /* Rounds the corners of the border, like a soft cushion instead of sharp edges */
-    padding: 20px;                          /* Adds space inside the border, like a comfy cushion*/
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* NAV CONTAINER */
+/* =========================
+   2. HEADER SECTION (No Divs)
+========================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+    padding: 20px 40px;
+}
+
+header p {
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(10, 9, 9);
+}
 
 nav {
-    display: flex;                      /* make the links line up in a row like toys in a box */
-    justify-content: center;            /* center the links in the middle of the page */
-    gap: 10px;                          /* adds 10px space between links like gaps between toys in a box */
-    margin: 20px 0;                     /* adds 20px empty space above and below the nav container(No space for left or right) */
+    display: flex;
 }
 
-/* LINKS BUTTONS */
 nav a {
-    padding: 10px 20px;                 /*Space inside an element of a container .for HOME button it is 10px top and bottom, 20px left and right */  
-    background-color: #e0e0e0;
-    color: #333;
+    color: rgb(8, 1, 1);
     text-decoration: none;
-    border: 1px solid #ccc;            /* adds a thin grey line around the buttons like a fence around a garden */
-    border-radius: 5px;                 /* rounded corners for the buttons */
-    font-weight: bold;
+    margin-left: 20px;
+    font-size: large;
+    font-weight: lighter;
 }
 
+nav a:hover {
+    color: #393668;
+}
+
+/* =========================
+   3. MAIN CONTENT
+========================= */
+main {
+    flex: 1;  
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* =========================
+   4. PAGE SPECIFIC STYLES
+========================= */
+
+/* Consistent Background for Subpages */
+.about, .contact, .feedback, .gallery, .payment, .services {
+    background-color: lab(81.81% 0.51 0.73 / 0.71);
+}
+
+/* HOME PAGE */
+.home {
+    background-color: lab(81.81% 0.51 0.73 / 0.71);
+    background-image: url("home.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.home main {
+    /* This pushes the first item to the top and the last item to the bottom */
+    justify-content: space-between; 
+    align-items: center;
+    /* Add some vertical padding so they aren't touching the edges */
+    padding: 60px 20px; 
+}
+
+.hero-text {
+    font-size: 56px;
+    color: rgb(253, 251, 251);
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #58f63ca6;
+    color: rgb(6, 2, 2);
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 18px;
+}
+
+.btn:hover {
+    background-color: #042c0a7c;
+}
+
+/* GALLERY PAGE */
+main.gallery {
+    display: flex !important; /* Forces Flexbox even if 'main' has other styles */
+    flex-direction: row;      /* Ensures items go left-to-right */
+    flex-wrap: wrap;          /* Allows wrapping to the second row */
+    justify-content: center;  /* Centers the videos */
+    gap: 20px;                /* Space between videos */
+    padding: 40px 20px;
+}
+
+.gallery-hero {
+    width: 100%;              /* Forces title to stay on its own top row */
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 30px;
+    flex-shrink: 0;           /* Prevents the title from squishing */
+}
+
+.gallery video {
+    /* Math: (100% / 3) minus a bit of room for the gaps */
+    width: calc(33.333% - 20px); 
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: black; /* Just in case video takes a second to load */
+}
+
+/* SERVICES PAGE */
+
+/* Container for the whole page */
+.services-page {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.services-hero {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+/* Service List Layout (2 columns using Flexbox) */
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 80px; /* 20px vertical gap, 80px horizontal gap */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.service-item {
+    /* Using calc to ensure exactly 2 items fit with the 80px gap */
+    width: calc(50% - 40px); 
+    min-width: 300px;
+    background-color: #c0c0c0; /* Light gray */
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-align: left;
+    font-size: 18px;
+}
+
+.divider {
+    margin: 50px auto;
+    border: 0;
+    border-top: 1px solid #ccc;
+    width: 95%;
+}
+
+/* Pricing Section (Aside) */
+.pricing-box {
+    background-color: #cdc9c9; /* Background for the gray box */
+    border-radius: 20px;
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pricing-box h3 {
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.price-grid {
+    display: flex;
+    justify-content: space-around; /* Spreads the 5 items horizontally */
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.price-item {
+    flex: 1;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Make the last line (the price) bold */
+.price-item p:last-child {
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+
+
+/* FEEDBACK PAGE */
+
+ /* Feedback Page Layout */
+.feedback-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.feedback-box {
+    background-color: #dbdbdb; /* Light gray box */
+    padding: 40px;
+    border-radius: 10px;
+    text-align: left;
+    width: 500px;
+}
+
+/* Star Rating Logic */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse; /* Allows us to color stars to the left */
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+
+.star-rating input {
+    display: none; /* Hide the actual radio buttons */
+}
+
+.star-rating label {
+    font-size: 50px;
+    color: #888; /* Default gray stars */
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+/* When a star is hovered or checked, turn it and previous stars yellow */
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+    color: #f6d32d; /* Studio Yellow */
+}
+
+/* Comment Area */
+.comment-section {
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.comment-section textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000;
+    width: 200px;
+    height: 60px;
+    resize: none;
+    font-family: inherit;
+    outline: none;
+}
+
+/* Submit Button */
+.submit-btn {
+    display: block;
+    margin: 30px auto 0;
+    background-color: #6bcc7a; /* Green from screenshot */
+    color: #000;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #58f63c;
+}   
+
+
+
+
+
+/* =========================
+   5. FOOTER
+========================= */
 footer {
-    margin-top: auto;  text-align: center;
-}                                                /* Automatically pushes the footer down to the bottom, like a magnet pulling it there, leaving space above */   
+    text-align: center;
+    padding: 20px;
+    background-color: #908e8e;
+    color: white;
+}

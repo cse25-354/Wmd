@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Holy Jack Studio</title>
+    <title>Book a Shoot | Holy Jack Studio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="contact">
@@ -19,10 +19,59 @@
             <a href="feedback.html">Feedback</a>
         </nav>
     </header>
-    <main>
-        <h1>Contact Us</h1>
-        <p>Get in touch for your next project.</p>
+
+    <main class="booking-page">
+        <section class="booking-box">
+            <h2>Secure Your Shoot</h2>
+            <p class="booking-subtitle">Tell us about your vision, and let's get planning.</p>
+            
+            <form action="#" method="POST">
+                <!-- Client Details Group -->
+                <p class="form-group">
+                    <label for="client-name">Full Name</label>
+                    <input type="text" id="client-name" name="name" placeholder="John Doe" required>
+                </p>
+
+                <p class="form-group">
+                    <label for="client-email">Email Address</label>
+                    <input type="email" id="client-email" name="email" placeholder="example@mail.com" required>
+                </p>
+
+                <!-- Project Category Selector -->
+                <p class="form-group">
+                    <label for="project-type">Project Type</label>
+                    <select id="project-type" name="project_type" required>
+                        <option value="" disabled selected>Select a service...</option>
+                        <option value="wedding">Wedding Videography</option>
+                        <option value="corporate">Corporate Storytelling</option>
+                        <option value="music-video">Music Video Project</option>
+                        <option value="event">Event Coverage</option>
+                    </select>
+                </p>
+
+                <!-- Shared Logistics Row using custom inline-flex paragraphs -->
+                <p class="form-group inline-group">
+                    <label for="event-date">Event Date</label>
+                    <input type="date" id="event-date" name="event_date" required>
+                </p>
+
+                <p class="form-group inline-group">
+                    <label for="event-location">Location / Venue</label>
+                    <input type="text" id="event-location" name="location" placeholder="City or Venue Name" required>
+                </p>
+
+                <!-- Deep Project Customization Descriptive Field -->
+                <p class="form-group label-block">
+                    <label for="project-details">Project Details & Creative Vision</label>
+                    <textarea id="project-details" name="details" placeholder="Share timeline info, preferred video style, or special requests..." required></textarea>
+                </p>
+
+                <!-- High Impact Conversion Button -->
+                <button type="submit" class="book-btn">Submit Booking Request</button>
+            </form>
+        </section>
     </main>
+
     <footer>
         <p>© 2026 All rights reserved</p>
     </footer>

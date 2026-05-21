@@ -124,8 +124,8 @@ main.gallery {
 
 .gallery video {
     /* Math: (100% / 3) minus a bit of room for the gaps */
-    width: calc(33.333% - 20px); 
-    height: 220px;
+    width: calc(33.333% - 20px); /*Creates space for the video*/
+    height: 220px;  /*creates space for the video*/
     object-fit: cover;
     border-radius: 10px;
     background-color: black; /* Just in case video takes a second to load */
@@ -287,6 +287,202 @@ main.gallery {
     background-color: #58f63c;
 }   
 
+
+/*ABOUT PAGE*/
+
+.about-page-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-page-content figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.about-page-content article h2 {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: rgb(10, 9, 9);
+}
+
+.about-page-content article p {
+    font-size: 16px;
+    color: rgb(8, 1, 1);
+    margin-bottom: 20px;
+}
+
+/* Technical / Style Capabilities Box */
+.tech-infrastructure {
+    background-color: #cdc9c9; /* Matches your pricing-box gray */
+    border-radius: 20px;
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: 40px auto 20px auto;
+    width: 100%;
+}
+
+.tech-infrastructure h3 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.infrastructure-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.infrastructure-row article {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.4); /* Subtle transparent professional backing */
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.infrastructure-row h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: rgb(10, 9, 9);
+}
+
+.infrastructure-row p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Responsiveness for Smaller Viewports */
+@media (max-width: 900px) {
+    .about-page-content {
+        grid-template-columns: 1fr; /* Stacks image neatly on top of text on mobile */
+        gap: 30px;
+        padding: 20px 10px;
+    }
+
+    .infrastructure-row {
+        flex-direction: column; /* Stack details vertically on small displays */
+        gap: 15px;
+    }
+}
+
+
+/*PAYMENT PAGE*/
+
+/* =========================
+   PAYMENT PAGE (No Divs, No Cancel)
+========================= */
+
+.payment-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+/* Light gray card block matching feedback layouts */
+section.payment-box {
+    background-color: #dbdbdb; 
+    padding: 30px 50px;
+    border-radius: 4px;
+    text-align: center;
+    width: 550px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+}
+
+section.payment-box h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+    margin: 5px 0;
+}
+
+.payment-divider {
+    letter-spacing: -1px;
+    font-weight: bold;
+    color: #000;
+    margin: 0 auto;
+}
+
+/* Row-level vertical stack styling */
+p.form-group {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+p.form-group label {
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+    white-space: nowrap;
+    margin-right: 15px;
+}
+
+/* Minimalist horizontal wireframe text lines */
+p.form-group input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid #000;
+    font-size: 20px;
+    padding: 2px 5px;
+    outline: none;
+    color: #000;
+}
+
+/* Inline behavior management for shorter side-by-side components */
+p.inline-group {
+    display: inline-flex;
+    width: 48%;
+}
+
+p.inline-group:nth-of-type(odd) {
+    margin-right: 2%;
+}
+
+p.inline-group input {
+    width: 80px;
+    flex: none;
+}
+
+/* Submission action control row */
+p.payment-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.pay-now-btn {
+    border: none;
+    padding: 12px 45px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    min-width: 160px;
+    background-color: #6bcc7a; /* Target execution green */
+    color: #000;
+    transition: transform 0.1s, opacity 0.2s;
+}
+
+.pay-now-btn:hover {
+    opacity: 0.85;
+    transform: scale(1.02);
+}
 
 
 

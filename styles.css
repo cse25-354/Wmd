@@ -381,9 +381,8 @@ main.gallery {
 
 /*PAYMENT PAGE*/
 
-/* =========================
-   PAYMENT PAGE (No Divs, No Cancel)
-========================= */
+
+
 
 .payment-page {
     display: flex;
@@ -483,6 +482,141 @@ p.payment-buttons {
     opacity: 0.85;
     transform: scale(1.02);
 }
+
+/* CONTACT PAGE*/
+
+.booking-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 80vh;
+}
+
+/* Light gray card block matching feedback & payment layouts */
+section.booking-box {
+    background-color: #dbdbdb; 
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+section.booking-box h2 {
+    font-size: 32px;
+    text-align: center;
+    color: #000;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.booking-subtitle {
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Vertical Form Alignment Groups using Paragraph elements */
+section.booking-box .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+section.booking-box label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 8px;
+}
+
+/* Modern clean wireframe element inputs */
+section.booking-box input, 
+section.booking-box select, 
+section.booking-box textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    font-size: 16px;
+    padding: 12px;
+    outline: none;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+section.booking-box input:focus, 
+section.booking-box select:focus, 
+section.booking-box textarea:focus {
+    border-color: #393668; /* Project dark focus accent */
+    background: #ffffff;
+}
+
+section.booking-box textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* Inline row simulation layout for side-by-side components */
+section.booking-box p.inline-group {
+    display: inline-flex;
+    width: 48%;
+}
+
+/* Simple margin balance logic for the dual columns */
+section.booking-box p.inline-group:nth-of-type(odd) {
+    margin-right: 4%;
+}
+
+/* Forces the textarea block to break the inline row rule and span fully */
+section.booking-box p.label-block {
+    display: flex;
+    clear: both;
+}
+
+/* High-contrast conversion button execution */
+.book-btn {
+    display: block;
+    width: 100%;
+    background-color: #6bcc7a; /* Studio conversion green */
+    color: #000;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.book-btn:hover {
+    background-color: #58f63c;
+    transform: translateY(-1px);
+}
+
+/* Mobile Viewport Reflow Mechanics */
+@media (max-width: 600px) {
+    section.booking-box p.inline-group {
+        display: flex;
+        width: 100%;
+        margin-right: 0 !important;
+    }
+    section.booking-box {
+        padding: 25px 20px;
+    }
+}
+
+
+
+
+
+
+
 
 
 

@@ -12,10 +12,11 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #000;
 }
 
 /* =========================
-   2. HEADER SECTION (No Divs)
+   2. HEADER SECTION 
 ========================= */
 header {
     display: flex;
@@ -36,7 +37,7 @@ nav {
 }
 
 nav a {
-    color: rgb(8, 1, 1);
+    color: rgb(63, 61, 61);
     text-decoration: none;
     margin-left: 20px;
     font-size: large;
@@ -63,48 +64,87 @@ main {
 
 /* Consistent Background for Subpages */
 .about, .contact, .feedback, .gallery, .payment, .services {
-    background-color: lab(81.81% 0.51 0.73 / 0.71);
+    background-color: lab(94.85% 0.16 0.59 / 0.71);
 }
 
 /* HOME PAGE */
-.home {
-    background-color: lab(81.81% 0.51 0.73 / 0.71);
-    background-image: url("home.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    text-align: center;
+
+body.home {
+    position: relative;
+    overflow-x: hidden;
+    background-color: #000; /* Fallback deep background color */
 }
 
-.home main {
-    /* This pushes the first item to the top and the last item to the bottom */
-    justify-content: space-between; 
+/* Make the video cover the entire viewport behind everything else */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Pushes the video backward underneath text and buttons */
+    pointer-events: none; /* Allows clicks to pass right through to elements above */
+}
+
+/* Adjusting the main wrapper properties for layered display */
+.home .hero-content {
+    background: transparent; /* Strips any solid background fill */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers your content vertically over the video */
     align-items: center;
-    /* Add some vertical padding so they aren't touching the edges */
-    padding: 60px 20px; 
+    min-height: calc(100vh - 150px); /* Adjusts height dynamically around header/footer */
+    padding: 40px;
+    position: relative;
+    z-index: 1;
 }
 
-.hero-text {
-    font-size: 56px;
-    color: rgb(253, 251, 251);
-    margin-bottom: 20px;
-}
+
 
 .btn {
     display: inline-block;
-    background-color: #58f63ca6;
+    background-color: #58f63ca6; /* Studio translucent green */
     color: rgb(6, 2, 2);
-    padding: 12px 25px;
+    padding: 12px 35px;
     text-decoration: none;
     border-radius: 25px;
     font-size: 18px;
+    font-weight: lighter;
+    width: fit-content;
+    align-self: center;         /* Keeps it centered inside flex containers */
+    transition: background-color 0.3s, transform 0.2s;
+    position: relative;         /* Confirms stacking layout context */
+    z-index: 5;                 /* Keeps it well above the background video layer */
 }
 
+/* Hover Effect */
 .btn:hover {
-    background-color: #042c0a7c;
+    background-color: #58f63c;  /* Fully solid green on hover */
+    transform: scale(1.03);     /* Slight micro-interaction pop */
+}
+
+/* Ensure the layout elements stack above the background plane cleanly */
+header, footer {
+    position: relative;
+    z-index: 2; 
+}
+
+/* Clear out font-weight error from original class */
+.hero-text {
+    font-size: 56px;
+    color: #ffffff; /* Brightened to pop cleanly off moving footage */
+    text-align: center;
+    font-style: normal;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Adds contrast overlay drop-shadow */
 }
 
 /* GALLERY PAGE */
+
+.gallery{
+    background-color: #0c0b0bdc;
+}
 main.gallery {
     display: flex !important; /* Forces Flexbox even if 'main' has other styles */
     flex-direction: row;      /* Ensures items go left-to-right */
@@ -119,7 +159,8 @@ main.gallery {
     text-align: center;
     font-size: 48px;
     margin-bottom: 30px;
-    flex-shrink: 0;           /* Prevents the title from squishing */
+    flex-shrink: 0;  
+    color: #f7f4f4;         /* Prevents the title from squishing */
 }
 
 .gallery video {
@@ -128,261 +169,638 @@ main.gallery {
     height: 220px;  /*creates space for the video*/
     object-fit: cover;
     border-radius: 10px;
-    background-color: black; /* Just in case video takes a second to load */
+    background-color: rgba(72, 70, 70, 0.626); /* Just in case video takes a second to load */
 }
 
 /* SERVICES PAGE */
 
-/* Container for the whole page */
-.services-page {
+.services {
+    background-color: #000;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
     text-align: center;
-    padding: 40px 20px;
 }
 
-.services-hero {
-    font-size: 32px;
-    margin-bottom: 40px;
+
+
+
+
+
+/* Core Styling Variables and Resets */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* Service List Layout (2 columns using Flexbox) */
-.services-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px 80px; /* 20px vertical gap, 80px horizontal gap */
-    max-width: 1000px;
-    margin: 0 auto;
-}
+body.services {
 
-.service-item {
-    /* Using calc to ensure exactly 2 items fit with the 80px gap */
-    width: calc(50% - 40px); 
-    min-width: 300px;
-    background-color: #c0c0c0; /* Light gray */
-    padding: 15px 25px;
-    border-radius: 12px;
-    text-align: left;
-    font-size: 18px;
-}
-
-.divider {
-    margin: 50px auto;
-    border: 0;
-    border-top: 1px solid #ccc;
-    width: 95%;
-}
-
-/* Pricing Section (Aside) */
-.pricing-box {
-    background-color: #cdc9c9; /* Background for the gray box */
-    border-radius: 20px;
-    padding: 40px 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.pricing-box h3 {
-    margin-bottom: 30px;
-    letter-spacing: 2px;
-}
-
-.price-grid {
-    display: flex;
-    justify-content: space-around; /* Spreads the 5 items horizontally */
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.price-item {
-    flex: 1;
-    font-size: 15px;
+    color: #e0e0e0;
     line-height: 1.6;
 }
 
-/* Make the last line (the price) bold */
-.price-item p:last-child {
-    font-weight: bold;
-    margin-top: 8px;
+ul {
+    list-style: none; /* Removes bullet points for our semantic grids */
 }
+
+/* Header & Navigation Formatting */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #2d2d2d;
+}
+
+header p {
+    font-weight: bold;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+nav a {
+    color: #b3b3b3;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+
+
+
+/* Main Container Control */
+.services-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.services-hero {
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+/* Services Grid Structure */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.service-item {
+    background-color: #1a1a1a;
+    padding: 40px 30px;
+    border-radius: 6px;
+    border: 1px solid #2d2d2d;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+    border-color: #444;
+}
+
+.service-item h3 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.service-item p {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.btn-gallery {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-gallery:hover {
+    background-color: #fff;
+    color: #121212;
+}
+
+/* Divider styling */
+.divider {
+    border: 0;
+    height: 1px;
+    background: #2d2d2d;
+    margin: 60px 0;
+}
+
+/* Pricing Section Setup */
+.section-header h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.pricing-subtitle {
+    text-align: center;
+    color: #a0a0a0;
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+}
+
+/* Tiered Pricing Grid */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+    align-items: center;
+}
+
+.price-card {
+    background: #1a1a1a;
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid #2d2d2d;
+    position: relative;
+}
+
+.price-card.featured {
+    border: 2px solid #00bcd4;
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.15);
+}
+
+.popular-tag {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #00bcd4;
+    color: #121212;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.price-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #00bcd4;
+    margin-bottom: 20px;
+}
+
+.features {
+    margin-bottom: 30px;
+}
+
+.features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #2d2d2d;
+    color: #a0a0a0;
+}
+
+.features li:last-child {
+    border-bottom: none;
+}
+
+/* Buttons */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #00bcd4;
+    color: #121212;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0097a7;
+}
+
+.btn-dark {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #444;
+    transition: background 0.3s;
+}
+
+.btn-dark:hover {
+    background-color: #444;
+}
+
+/* Custom Quote Box */
+.custom-quote-box {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-left: 5px solid #00bcd4;
+    border-top: 1px solid #2d2d2d;
+    border-right: 1px solid #2d2d2d;
+    border-bottom: 1px solid #2d2d2d;
+}
+
+.quote-content h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.quote-content p {
+    color: #a0a0a0;
+    max-width: 700px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 900px) {
+    .custom-quote-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .price-card.featured {
+        transform: scale(1);
+    }
+}
+
+/* Structural Footer Details */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #1a1a1a;
+    border-top: 1px solid #2d2d2d;
+    color: #666;
+    font-size: 0.9rem;
+}
+
 
 
 
 /* FEEDBACK PAGE */
 
- /* Feedback Page Layout */
+ /* ==========================
+   FEEDBACK FORM (feedback-box)
+========================== */
 .feedback-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 70vh;
+    flex: 1;
+    padding: 40px 20px;
 }
+
+
+
+body.feedback{
+    background-color: #0c0b0b;
+}
+
+
+
 
 .feedback-box {
-    background-color: #dbdbdb; /* Light gray box */
+    background-color: #2d29296e;
     padding: 40px;
     border-radius: 10px;
-    text-align: left;
-    width: 500px;
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
 }
 
-/* Star Rating Logic */
+.feedback-box p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* STAR RATING */
 .star-rating {
     display: flex;
-    flex-direction: row-reverse; /* Allows us to color stars to the left */
-    justify-content: flex-end;
-    margin: 20px 0;
+    flex-direction: row-reverse;
+    justify-content: center;
+    margin: 10px 0 20px 0;
 }
 
-.star-rating input {
-    display: none; /* Hide the actual radio buttons */
-}
+.star-rating input { display: none; }
 
 .star-rating label {
-    font-size: 50px;
-    color: #888; /* Default gray stars */
+    font-size: 40px;
+    color: #fcfafa;
     cursor: pointer;
     transition: color 0.2s;
+    padding: 0 5px;
 }
 
-/* When a star is hovered or checked, turn it and previous stars yellow */
 .star-rating label:hover,
 .star-rating label:hover ~ label,
 .star-rating input:checked ~ label {
-    color: #f6d32d; /* Studio Yellow */
+    color: #f6d32d;
 }
 
-/* Comment Area */
+/* COMMENT SECTION */
 .comment-section {
-    margin-top: 20px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
-.comment-section textarea {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #000;
-    width: 200px;
-    height: 60px;
-    resize: none;
-    font-family: inherit;
-    outline: none;
-}
+.comment-section label { display: block; margin-bottom: 8px; }
 
-/* Submit Button */
-.submit-btn {
-    display: block;
-    margin: 30px auto 0;
-    background-color: #6bcc7a; /* Green from screenshot */
-    color: #000;
-    border: none;
-    padding: 10px 40px;
+textarea {
+    width: 100%;
+    background-color: #0e0c0c;
+    border: 1px solid #444;
     border-radius: 8px;
-    font-size: 18px;
-    cursor: pointer;
+    padding: 15px;
+    color: #fff;
+    box-sizing: border-box;
+    resize: vertical;
 }
 
-.submit-btn:hover {
-    background-color: #58f63c;
-}   
+.submit-btn {
+    width: 100%;
+    background-color: #08f604ec;
+    color: #1a1a1a;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* ==========================
+   REVIEWS SECTION
+========================== */
+.reviews-section {
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+.reviews-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.reviews-grid {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.review-card {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    border-top: 4px solid #887f52;
+}
+
+.review-stars {
+    color: #f6d32d;
+    margin: 0 0 10px 0;
+}
+
+.review-text {
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #e0e0e0;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #f1f1f1;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+}
+
+
+
 
 
 /*ABOUT PAGE*/
 
-.about-page-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
+.about {
+    background-color: rgb(11, 10, 10)
+    
 }
 
-.about-page-content figure img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
 
-.about-page-content article h2 {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: rgb(10, 9, 9);
-}
 
-.about-page-content article p {
-    font-size: 16px;
-    color: rgb(8, 1, 1);
-    margin-bottom: 20px;
-}
 
-/* Technical / Style Capabilities Box */
-.tech-infrastructure {
-    background-color: #cdc9c9; /* Matches your pricing-box gray */
-    border-radius: 20px;
-    padding: 40px 20px;
-    max-width: 1100px;
-    margin: 40px auto 20px auto;
-    width: 100%;
-}
 
-.tech-infrastructure h3 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 30px;
-    letter-spacing: 2px;
-}
-
-.infrastructure-row {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.infrastructure-row article {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.4); /* Subtle transparent professional backing */
-    padding: 20px;
-    border-radius: 12px;
-}
-
-.infrastructure-row h4 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: rgb(10, 9, 9);
-}
-
-.infrastructure-row p {
-    font-size: 14px;
+/* About Page Contextual Overrides */
+body.about {
+    color: #e0e0e0;
     line-height: 1.6;
 }
 
-/* Responsiveness for Smaller Viewports */
-@media (max-width: 900px) {
-    .about-page-content {
-        grid-template-columns: 1fr; /* Stacks image neatly on top of text on mobile */
-        gap: 30px;
-        padding: 20px 10px;
-    }
+/* Nav Link Persistence Highlight */
 
-    .infrastructure-row {
-        flex-direction: column; /* Stack details vertically on small displays */
-        gap: 15px;
+
+/* About Layout Structure */
+.about-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+.about-hero {
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+/* Manifest Block Stylings */
+.about-intro {
+    max-width: 850px;
+    margin: 0 auto 40px auto;
+    padding: 45px;
+    border-radius: 6px;
+    border: 1px solid #2d2d2d;
+    background-color: #1a1a1acf;
+}
+
+.manifest-content h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+    border-left: 4px solid #00bcd4;
+    padding-left: 15px;
+}
+
+.manifest-content p {
+    color: #b3b3b3;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.manifest-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* Pillars Layout System */
+.section-center-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-center-header h2 {
+    font-size: 2.2rem;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.section-center-header p {
+    color: #888;
+}
+
+.pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 60px;
+}
+
+.pillars-grid li {
+    background-color: #080707;
+    padding: 35px 25px;
+    border-radius: 6px;
+    border: 1px solid #2d2d2d;
+    transition: transform 0.3s;
+}
+
+.pillars-grid li:hover {
+    transform: scale(1.02);
+    border-color: #444;
+}
+
+.pillars-grid strong {
+    display: block;
+    font-size: 1.3rem;
+    color: #00bcd4;
+    margin-bottom: 15px;
+}
+
+.pillars-grid p {
+    color: #a0a0a0;
+    font-size: 0.95rem;
+}
+
+/* About Action Callout Area */
+.about-cta-box {
+    background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+    border-radius: 8px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #2d2d2d;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.cta-text h3 {
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.cta-text p {
+    color: #b3b3b3;
+    max-width: 650px;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #00bcd4;
+    color: #121212;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background 0.3s;
+    white-space: nowrap;
+}
+
+.btn-cta:hover {
+    background-color: #0097a7;
+}
+
+/* Mobile Layout Overrides */
+@media (max-width: 850px) {
+    .about-cta-box {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+    }
+    .about-intro {
+        padding: 25px;
+    }
+    .about-hero {
+        font-size: 2.3rem;
     }
 }
+
+
+
+
+
+
+
+
+
+
 
 
 /*PAYMENT PAGE*/
 
 
-
+.payment {
+    background-color: #0c0b0b;
+}
 
 .payment-page {
     display: flex;
@@ -393,7 +811,7 @@ main.gallery {
 
 /* Light gray card block matching feedback layouts */
 section.payment-box {
-    background-color: #dbdbdb; 
+    background-color: #0d0b0b5d; 
     padding: 30px 50px;
     border-radius: 4px;
     text-align: center;
@@ -404,14 +822,14 @@ section.payment-box {
 section.payment-box h2 {
     font-size: 28px;
     font-weight: bold;
-    color: #000;
+    color: #faf6f6;
     margin: 5px 0;
 }
 
 .payment-divider {
     letter-spacing: -1px;
     font-weight: bold;
-    color: #000;
+    color: #faf7f7;
     margin: 0 auto;
 }
 
@@ -426,7 +844,7 @@ p.form-group {
 p.form-group label {
     font-size: 22px;
     font-weight: bold;
-    color: #000;
+    color: #f8f4f4;
     white-space: nowrap;
     margin-right: 15px;
 }
@@ -436,11 +854,11 @@ p.form-group input {
     flex: 1;
     background: transparent;
     border: none;
-    border-bottom: 3px solid #000;
+    border-bottom: 3px solid #fcfafa;
     font-size: 20px;
     padding: 2px 5px;
     outline: none;
-    color: #000;
+    color: #f9f7f7;
 }
 
 /* Inline behavior management for shorter side-by-side components */
@@ -495,7 +913,7 @@ p.payment-buttons {
 
 /* Light gray card block matching feedback & payment layouts */
 section.booking-box {
-    background-color: #dbdbdb; 
+    background-color: #1f1c1caa; 
     padding: 40px;
     border-radius: 10px;
     width: 100%;
@@ -503,10 +921,15 @@ section.booking-box {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
 }
 
+body.contact {
+    background-color: #0c0b0b;
+}
+
+
 section.booking-box h2 {
     font-size: 32px;
     text-align: center;
-    color: #000;
+    color: #fbf9f9;
     margin-bottom: 5px;
     font-weight: bold;
 }
@@ -514,7 +937,7 @@ section.booking-box h2 {
 .booking-subtitle {
     text-align: center;
     font-size: 16px;
-    color: #333;
+    color: #f4f3f3;
     margin-bottom: 30px;
 }
 
@@ -529,7 +952,7 @@ section.booking-box .form-group {
 section.booking-box label {
     font-size: 16px;
     font-weight: bold;
-    color: #000;
+    color: #f9f5f5;
     margin-bottom: 8px;
 }
 
@@ -538,7 +961,7 @@ section.booking-box input,
 section.booking-box select, 
 section.booking-box textarea {
     width: 100%;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(254, 250, 250, 0.611);
     border: 1px solid #aaa;
     border-radius: 6px;
     font-size: 16px;

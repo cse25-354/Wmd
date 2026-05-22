@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Page Information -->
+        <title>Gallery | Holy Jack Studio</title>
+    </head>
+
+    <body>
+
+        <!-- Header Section -->
+        <header>
+
+            <!-- Website Name -->
+            <p>Holy Jack Studio</p>
+
+            <!-- Navigation Menu -->
+            <nav>
+                <a>Home</a>
+                <a>Services</a>
+                <a>Gallery</a>
+                <a>Contact</a>
+                <a>About</a>
+                <a>Payment</a>
+                <a>Feedback</a>
+            </nav>
+
+        </header>
+
+        <!-- Main Content -->
+        <main>
+
+            <!-- Gallery Heading -->
+            <h1>Our Work</h1>
+
+            <!-- Video Gallery -->
+            <video></video>
+            <video></video>
+            <video></video>
+            <video></video>
+            <video></video>
+            <video></video>
+
+        </main>
+
+        <!-- Footer Section -->
+        <footer>
+            <p>© 2026 All rights reserved</p>
+        </footer>
+
+    </body>
+
+</html>

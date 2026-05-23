@@ -3,28 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holy Jack Studio | Home</title>
+    <title>Home | Holy Jack Studio</title>
+    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="home">
+
+    <!-- Background Video Element -->
+    <video autoplay loop muted playsinline class="bg-video">
+        <source src="homepage.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- HEADER (Navigation stays exactly intact) -->
     <header>
-        <p>Holy Jack Studio</p>
+        <p class="logo">Holy Jack Studio</p>
+
         <nav>
             <a href="index.html">Home</a>
             <a href="services.html">Services</a>
             <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-            <a href="about.html">About</a>
             <a href="payment.html">Payment</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
             <a href="feedback.html">Feedback</a>
         </nav>
     </header>
-    <main> 
+
+    <!-- MAIN CONTENT -->
+    <main class="hero-content"> 
         <h1 class="hero-text">Your story starts with us</h1>
         <a href="services.html" class="btn">Book Now</a>
     </main>
+
+    <!-- FOOTER -->
     <footer>
         <p>© 2026 All rights reserved</p>
     </footer>
+
 </body>
 </html>

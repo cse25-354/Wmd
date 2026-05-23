@@ -19,9 +19,45 @@
             <a href="feedback.html">Feedback</a>
         </nav>
     </header>
-    <main>
-        <h1>Payment</h1>
-        <p>Information regarding service costs and payment methods.</p>
+    
+        <main class="payment-page">
+    <section class="payment-box">
+        <h2>Payment</h2>
+        <p class="payment-divider">___________________________</p>
+        <p style="margin-bottom: 20px;">Please enter card details below:</p>
+        
+        <form action="#">
+            <!-- Cardholder Name -->
+            <p class="form-group">
+                <label Safe For="card-name">Name:</label>
+                <input type="text" id="card-name" required>
+            </p>
+
+            <!-- Card Number -->
+            <p class="form-group">
+                <label Safe For="card-num">Card:</label>
+                <input type="text" id="card-num" placeholder="0000 0000 0000 0000" required>
+            </p>
+
+            <!-- Expiry Date (Inline Group) -->
+            <p class="form-group inline-group">
+                <label Safe For="expiry">Exp:</label>
+                <input type="text" id="expiry" placeholder="MM/YY" required>
+            </p>
+
+            <!-- CVV (Inline Group) -->
+            <p class="form-group inline-group">
+                <label Safe For="cvv">CVV:</label>
+                <input type="password" id="cvv" placeholder="123" required>
+            </p>
+
+            <!-- Action Button -->
+            <p class="payment-buttons">
+                <button type="submit" class="pay-now-btn">Pay Now</button>
+            </p>
+        </form>
+    </section>
+
     </main>
     <footer>
         <p>© 2026 All rights reserved</p>

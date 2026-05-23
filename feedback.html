@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Feedback | Holy Jack Studio</title>
+    <!-- Ensure your path to style.css is correct -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="feedback">
@@ -20,32 +21,59 @@
         </nav>
     </header>
 
-        <main class="feedback-page">
-    <form class="feedback-box">
-        <p>Rate your experience with us</p>
-        
-        <!-- Star Rating Group -->
-        <section class="star-rating">
-            <input type="radio" name="rate" id="star5" value="5">
-            <label for="star5">★</label>
-            <input type="radio" name="rate" id="star4" value="4">
-            <label for="star4">★</label>
-            <input type="radio" name="rate" id="star3" value="3">
-            <label for="star3">★</label>
-            <input type="radio" name="rate" id="star2" value="2">
-            <label for="star2">★</label>
-            <input type="radio" name="rate" id="star1" value="1">
-            <label for="star1">★</label>
-        </section>
+    <main class="feedback-page">
+        <!-- Feedback Form -->
+        <form class="feedback-box">
+            <p>Rate your experience with us</p>
+            
+            <!-- Star Rating Group -->
+            <section class="star-rating">
+                <input type="radio" name="rate" id="star5" value="5">
+                <label for="star5">★</label>
+                <input type="radio" name="rate" id="star4" value="4">
+                <label for="star4">★</label>
+                <input type="radio" name="rate" id="star3" value="3">
+                <label for="star3">★</label>
+                <input type="radio" name="rate" id="star2" value="2">
+                <label for="star2">★</label>
+                <input type="radio" name="rate" id="star1" value="1">
+                <label for="star1">★</label>
+            </section>
 
-        <section class="comment-section">
-            <label for="comment">Comment:</label>
-            <textarea id="comment" placeholder="____________________&#10;____________________"></textarea>
-        </section>
+            <section class="comment-section">
+                <label for="comment">Comment:</label>
+                <textarea id="comment" placeholder="____________________&#10;____________________"></textarea>
+            </section>
 
-        <button type="submit" class="submit-btn">Submit</button>
-    </form>
-</main>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+
+        <!-- Fake Reviews -->
+        <section class="reviews-section">
+            <h2>What Our Clients Say</h2>
+            <ul class="reviews-grid">
+                
+                <li class="review-card">
+                    <p class="review-stars">★★★★★</p>
+                    <p class="review-text">"Holy Jack Studio completely blew us away. The video quality for our corporate event was cinematic and the editing was incredibly fast."</p>
+                    <p class="review-author">- Sarah Jenkins, TechCorp</p>
+                </li>
+
+                <li class="review-card">
+                    <p class="review-stars">★★★★★</p>
+                    <p class="review-text">"They shot my latest music video and the lighting was perfect. The team is super professional and brought my exact vision to life. Highly recommend!"</p>
+                    <p class="review-author">- Marcus T., Musician</p>
+                </li>
+
+                <li class="review-card">
+                    <p class="review-stars">★★★★★</p>
+                    <p class="review-text">"We hired them for a promotional video for our business. They made us look amazing and our sales have gone up since we posted it online."</p>
+                    <p class="review-author">- David & Emily, Cafe Owners</p>
+                </li>
+
+            </ul>
+        </section>
+    </main>
 
     <footer>
         <p>© 2026 All rights reserved</p>

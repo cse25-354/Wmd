@@ -827,7 +827,7 @@ p.payment-buttons {
     transform: scale(1.02);
 }
 
-/* CONTACT PAGE*/
+/* CONTACT PAGE */
 
 .booking-page {
     display: flex;
@@ -837,9 +837,13 @@ p.payment-buttons {
     min-height: 80vh;
 }
 
-/* Light gray card block matching feedback & payment layouts */
+body.contact {
+    background-color: #0c0b0b;
+}
+
+/* Booking form box */
 section.booking-box {
-    background-color: #1f1c1caa; 
+    background-color: #1f1c1caa;
     padding: 40px;
     border-radius: 10px;
     width: 100%;
@@ -847,15 +851,10 @@ section.booking-box {
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
 }
 
-body.contact {
-    background-color: #0c0b0b;
-}
-
-
 section.booking-box h2 {
     font-size: 32px;
     text-align: center;
-    color: #fdfbfb;
+    color: #ffffff;
     margin-bottom: 5px;
     font-weight: bold;
 }
@@ -863,11 +862,11 @@ section.booking-box h2 {
 .booking-subtitle {
     text-align: center;
     font-size: 16px;
-    color: #fcfcfc;
+    color: #ffffff;
     margin-bottom: 30px;
 }
 
-/* Vertical Form Alignment Groups using Paragraph elements */
+/* Form rows */
 section.booking-box .form-group {
     display: flex;
     flex-direction: column;
@@ -878,16 +877,17 @@ section.booking-box .form-group {
 section.booking-box label {
     font-size: 16px;
     font-weight: bold;
-    color: #fefafa;
+    color: #ffffff;
     margin-bottom: 8px;
 }
 
-/* Modern clean wireframe element inputs */
-section.booking-box input, 
-section.booking-box select, 
+/* Inputs, select and textarea */
+section.booking-box input,
+section.booking-box select,
 section.booking-box textarea {
     width: 100%;
     background: rgba(254, 250, 250, 0.611);
+    color: #000000;
     border: 1px solid #aaa;
     border-radius: 6px;
     font-size: 16px;
@@ -898,11 +898,12 @@ section.booking-box textarea {
     transition: border-color 0.2s, background-color 0.2s;
 }
 
-section.booking-box input:focus, 
-section.booking-box select:focus, 
+section.booking-box input:focus,
+section.booking-box select:focus,
 section.booking-box textarea:focus {
-    border-color: #393668; /* Project dark focus accent */
+    border-color: #393668;
     background: #ffffff;
+    color: #000000;
 }
 
 section.booking-box textarea {
@@ -910,29 +911,28 @@ section.booking-box textarea {
     resize: vertical;
 }
 
-/* Inline row simulation layout for side-by-side components */
+/* Side-by-side fields */
 section.booking-box p.inline-group {
     display: inline-flex;
     width: 48%;
 }
 
-/* Simple margin balance logic for the dual columns */
 section.booking-box p.inline-group:nth-of-type(odd) {
     margin-right: 4%;
 }
 
-/* Forces the textarea block to break the inline row rule and span fully */
+/* Full-width textarea group */
 section.booking-box p.label-block {
     display: flex;
     clear: both;
 }
 
-/* High-contrast conversion button execution */
+/* Submit button */
 .book-btn {
     display: block;
     width: 100%;
-    background-color: #6bcc7a; /* Studio conversion green */
-    color: #000;
+    background-color: #6bcc7a;
+    color: #000000;
     border: none;
     padding: 15px;
     border-radius: 8px;
@@ -948,18 +948,18 @@ section.booking-box p.label-block {
     transform: translateY(-1px);
 }
 
-/* Mobile Viewport Reflow Mechanics */
+/* Mobile contact page */
 @media (max-width: 600px) {
     section.booking-box p.inline-group {
         display: flex;
         width: 100%;
         margin-right: 0 !important;
     }
+
     section.booking-box {
         padding: 25px 20px;
     }
 }
-
 
 /* =========================
    5. FOOTER

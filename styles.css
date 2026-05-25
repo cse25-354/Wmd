@@ -39,15 +39,15 @@ nav {
 }
 
 nav a {
-    color: rgb(63, 61, 61);
+    color: #b3b3b3;
     text-decoration: none;
     margin-left: 20px;
-    font-size: large;
-    font-weight: lighter;
+    font-weight: 500;
+    transition: color 0.3s;
 }
 
 nav a:hover {
-    color: #393668;
+    color: #61f347a0;
 }
 
 /* =========================
@@ -64,10 +64,6 @@ main {
    4. PAGE SPECIFIC STYLES
 ========================= */
 
-/* Consistent Background for Subpages */
-.about, .contact, .feedback, .gallery, .payment, .services {
-    background-color: lab(94.85% 0.16 0.59 / 0.71);
-}
 
 /* HOME PAGE */
 
@@ -144,11 +140,11 @@ header, footer {
 
 /* GALLERY PAGE */
 
-.gallery{
+body.gallery{
     background-color: #0c0b0bdc;
 }
 main.gallery {
-    display: flex !important; /* Forces Flexbox even if 'main' has other styles */
+    display: flex; /* Forces Flexbox even if 'main' has other styles */
     flex-direction: row;      /* Ensures items go left-to-right */
     flex-wrap: wrap;          /* Allows wrapping to the second row */
     justify-content: center;  /* Centers the videos */
@@ -184,14 +180,6 @@ main.gallery {
     text-align: center;
 }
 
-
-
-
-
-
-
-
-
 body.services {
 
     color: #e0e0e0;
@@ -201,26 +189,6 @@ body.services {
 ul {
     list-style: none; /* Removes bullet points for our semantic grids */
 }
-
-/* Header & Navigation Formatting */
-
-
-header p {
-    font-weight: bold;
-    font-size: 1.3rem;
-    letter-spacing: 1px;
-    color: #fff;
-}
-
-nav a {
-    color: #b3b3b3;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 500;
-    transition: color 0.3s;
-}
-
-
 
 
 /* Main Container Control */
@@ -449,18 +417,6 @@ nav a {
     }
 }
 
-/* Structural Footer Details */
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    background-color: #1a1a1a;
-    border-top: 1px solid #2d2d2d;
-    color: #666;
-    font-size: 0.9rem;
-}
-
-
-
 
 /* FEEDBACK PAGE */
 
@@ -603,20 +559,12 @@ textarea {
     font-size: 0.9rem;
 }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #000;
-}
-
-
-
 
 
 /*ABOUT PAGE*/
 
 .about {
-    background-color: rgb(11, 10, 10)
+    background-color: rgb(11, 10, 10);
     
 }
 

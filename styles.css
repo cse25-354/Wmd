@@ -98,8 +98,6 @@ body.home {
     z-index: 1;
 }
 
-
-
 .btn {
     display: inline-block;
     background-color: #58f63ca6; /* Studio translucent green */
@@ -189,7 +187,6 @@ body.services {
 ul {
     list-style: none; /* Removes bullet points for our semantic grids */
 }
-
 
 /* Main Container Control */
 .services-page {
@@ -428,14 +425,9 @@ ul {
     padding: 40px 20px;
 }
 
-
-
 body.feedback{
     background-color: #0c0b0b;
 }
-
-
-
 
 .feedback-box {
     background-color: #2d29296e;
@@ -568,18 +560,10 @@ textarea {
     
 }
 
-
-
-
-
-/* About Page Contextual Overrides */
 body.about {
     color: #e0e0e0;
     line-height: 1.6;
 }
-
-/* Nav Link Persistence Highlight */
-
 
 /* About Layout Structure */
 .about-page {
@@ -725,16 +709,6 @@ body.about {
         font-size: 2.3rem;
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
 /*PAYMENT PAGE*/
@@ -980,15 +954,6 @@ section.booking-box p.label-block {
 }
 
 
-
-
-
-
-
-
-
-
-
 /* =========================
    5. FOOTER
 ========================= */
@@ -998,13 +963,6 @@ footer {
     background-color: #0b0a0acd;
     color: rgb(244, 240, 240);
 }
-
-
-
-
-
-
-
 
 
 /* =========================

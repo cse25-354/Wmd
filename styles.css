@@ -50,6 +50,13 @@ nav a:hover {
     color: #61f347a0;
 }
 
+nav a.active {
+    color: #61f347;
+    border-bottom: 2px solid #61f347;
+}
+
+
+
 /* =========================
    3. MAIN CONTENT
 ========================= */

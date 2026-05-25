@@ -855,7 +855,7 @@ body.contact {
 section.booking-box h2 {
     font-size: 32px;
     text-align: center;
-    color: #fbf9f9;
+    color: #0d0b0b;
     margin-bottom: 5px;
     font-weight: bold;
 }
@@ -863,7 +863,7 @@ section.booking-box h2 {
 .booking-subtitle {
     text-align: center;
     font-size: 16px;
-    color: #f4f3f3;
+    color: #0f0c0c;
     margin-bottom: 30px;
 }
 
@@ -878,7 +878,7 @@ section.booking-box .form-group {
 section.booking-box label {
     font-size: 16px;
     font-weight: bold;
-    color: #f9f5f5;
+    color: #0b0909;
     margin-bottom: 8px;
 }
 

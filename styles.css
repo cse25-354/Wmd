@@ -81,8 +81,15 @@ body.home {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1; /* Pushes the video backward underneath text and buttons */
+    z-index: 0; /* Pushes the video backward underneath text and buttons */
     pointer-events: none; /* Allows clicks to pass right through to elements above */
+}
+
+body.home header,
+body.home main,
+body.home footer {
+    position: relative;
+    z-index: 1;
 }
 
 /* Adjusting the main wrapper properties for layered display */

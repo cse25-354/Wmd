@@ -22,14 +22,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: gray;
-    padding: 20px 40px;
+    padding: 20px 5%;
+    background-color: #1a1a1a;
+    border-bottom: 1px solid #2d2d2d;
 }
 
 header p {
-    font-size: 22px;
     font-weight: bold;
-    color: rgb(10, 9, 9);
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    color: #fff;
 }
 
 nav {
@@ -187,13 +189,8 @@ main.gallery {
 
 
 
-/* Core Styling Variables and Resets */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Arial, sans-serif;
-}
+
+
 
 body.services {
 
@@ -206,14 +203,7 @@ ul {
 }
 
 /* Header & Navigation Formatting */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    background-color: #1a1a1a;
-    border-bottom: 1px solid #2d2d2d;
-}
+
 
 header p {
     font-weight: bold;
@@ -1059,4 +1049,68 @@ footer {
     padding: 20px;
     background-color: #0b0a0acd;
     color: rgb(244, 240, 240);
+}
+
+
+
+
+
+
+
+
+
+/* =========================
+   6. MOBILE RESPONSIVENESS
+========================= */
+@media (max-width: 700px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+        text-align: center;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav a {
+        margin-left: 0;
+        font-size: 16px;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    .hero-text {
+        font-size: 36px;
+    }
+
+    .gallery video {
+        width: 100%;
+        height: 220px;
+    }
+
+    section.payment-box {
+        width: 100%;
+        padding: 25px 20px;
+    }
+
+    p.form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    p.form-group label {
+        margin-bottom: 8px;
+    }
+
+    p.inline-group {
+        width: 100%;
+        display: flex;
+        margin-right: 0;
+    }
 }

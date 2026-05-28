@@ -14,7 +14,7 @@
             <a href="services.html">Services</a>
             <a href="gallery.html">Gallery</a>
             <a href="contact.html">Contact</a>
-            <a href="about.html">About</a>
+            <a href="about.html" class="active">About</a>
             <a href="payment.html">Payment</a>
             <a href="feedback.html">Feedback</a>
         </nav>
@@ -67,8 +67,32 @@
         </aside>
     </main> 
 
+    <button id="backToTop" class="back-to-top" title="Go to top">↑</button>
+
     <footer>
         <p>© 2026 All rights reserved</p>
     </footer>
+
+    <script>
+        const backToTopBtn = document.getElementById("backToTop");
+
+        // Show button when user scrolls down 400px from the top
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add("show");
+            } else {
+                backToTopBtn.classList.remove("show");
+            }
+        });
+
+        // Smooth scroll back to top on click
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    </script>
+
 </body>
 </html>

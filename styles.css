@@ -50,6 +50,11 @@ nav a:hover {
     color: #61f347a0;
 }
 
+nav a.active {
+    color: #61f347;
+    border-bottom: 2px solid #61f347a0;
+}
+
 /* =========================
    3. MAIN CONTENT
 ========================= */
@@ -422,6 +427,47 @@ ul {
 }
 
 
+
+/* Back to Top Button Base Styling */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 999; /* Keeps it above video grids and text */
+    
+    /* Design matching your Studio theme */
+    background-color: #61f347a0; 
+    color: #ffffff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Perfect circle */
+    font-size: 22px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Hidden states by default */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease, background-color 0.3s;
+}
+
+/* Hover State */
+.back-to-top:hover {
+    background-color: #4cd335; /* Darkens your theme accent green slightly */
+}
+
+/* Activated State (Triggered by JavaScript) */
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
 /* FEEDBACK PAGE */
 
  /* ==========================
@@ -716,7 +762,6 @@ body.about {
         font-size: 2.3rem;
     }
 }
-
 
 /*PAYMENT PAGE*/
 
